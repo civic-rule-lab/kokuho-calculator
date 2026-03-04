@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>茅ヶ崎 国保電卓</title>
+</head>
+<body>
+<h1>茅ヶ崎 国保電卓（試作）</h1>
+<p>所得を入力</p>
+<input id="income" type="number">
+<h2 id="result"></h2>
+<script>
+
+function calc(){
+
+let income =
+document.getElementById("income").value;
+
+let tax =
+income * 0.06;
+
+document.getElementById("result").innerHTML =
+"国保目安：" + tax.toLocaleString() + "円";
+
+}
+
+</script>
