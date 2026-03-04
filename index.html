@@ -1,49 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>茅ヶ崎 国保電卓</title>
-  <link rel="stylesheet" href="./style.css" />
+  <title>茅ヶ崎市 国保電卓</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="wrap">
-    <h1>茅ヶ崎市　国保電卓</h1>
+  <div class="wrap">
+    <h1>茅ヶ崎市 国保電卓</h1>
 
     <div class="card">
-      <label class="label" for="income">
-        総所得金額等（世帯の合計の目安）※簡易
-      </label>
+      <label for="income">総所得金額等（世帯の合計の目安）※簡易</label>
       <input id="income" type="number" inputmode="numeric" placeholder="例：3160000" />
 
-      <label class="label" for="insuredCount">
-        国保の人数（被保険者数）
-      </label>
-      <input id="insuredCount" type="number" inputmode="numeric" min="1" placeholder="例：4" />
+      <label for="insuredCount">国保の人数（被保険者数）</label>
+      <input id="insuredCount" type="number" inputmode="numeric" placeholder="例：4" />
 
-      <label class="label" for="nursingCount">
-        介護分の対象人数（40〜64歳の人数）
-      </label>
-      <input id="nursingCount" type="number" inputmode="numeric" min="0" placeholder="例：1" />
+      <label for="careCount">介護分の対象人数（40〜64歳の人数）</label>
+      <input id="careCount" type="number" inputmode="numeric" placeholder="例：1" />
 
       <button id="calcBtn" type="button">計算</button>
 
       <div class="result">
-        <div class="result-title">年間国保目安</div>
-        <div id="result" class="result-value">—</div>
+        <div class="resultTitle">年間国保目安</div>
+        <div id="annual" class="resultValue">—</div>
+
+        <div class="resultTitle">月額目安（年間÷12）</div>
+        <div id="monthly" class="resultValue">—</div>
+
         <details class="details">
           <summary>内訳を見る</summary>
           <pre id="breakdown" class="breakdown">—</pre>
         </details>
 
         <p class="note">
-          ※簡易計算：所得割の賦課標準は「総所得金額等 − 基礎控除43万円」を1回だけ適用して計算しています（本来は所得がある被保険者ごと）。  [oai_citation:1‡茅ヶ崎市公式サイト](https://www.city.chigasaki.kanagawa.jp/faq/1000004/1000042/1000052.html)
+          ※簡易計算：所得割の賦課標準は「総所得金額等 − 基礎控除43万円」を1回だけ適用して計算しています（本来は所得がある被保険者ごと）。<br>
+          参考：茅ヶ崎市公式サイト（FAQ等）
         </p>
       </div>
     </div>
-  </main>
+  </div>
 
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
