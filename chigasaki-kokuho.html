@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>【茅ヶ崎市】国民健康保険料（国保）シミュレーター｜年間・月額の目安を簡単計算</title>
+  <meta name="description" content="茅ヶ崎市の国民健康保険（国保）を概算でシミュレーション。世帯の所得目安・加入人数・40〜64歳人数を入れると、年間・月額の目安と内訳を表示します。" />
+  <link rel="canonical" href="https://civic-rule-lab.github.io/kokuho-calculator/chigasaki/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OGP（SNSシェア） -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="【茅ヶ崎市】国保シミュレーター｜年間・月額の目安を簡単計算" />
+  <meta property="og:description" content="茅ヶ崎市の国保（国民健康保険）を概算で計算。入力→年間・月額目安と内訳を表示。" />
+  <meta property="og:url" content="https://civic-rule-lab.github.io/kokuho-calculator/chigasaki/" />
+
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- 構造化データ：WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "茅ヶ崎市 国保シミュレーター",
+    "url": "https://civic-rule-lab.github.io/kokuho-calculator/chigasaki/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "description": "茅ヶ崎市の国民健康保険（国保）の保険料目安を概算で計算するシミュレーター。",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  }
+  </script>
+
+  <!-- 構造化データ：FAQ（検索結果で強い） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "茅ヶ崎市の国保はここで正確に計算できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "このページは自治体の計算方法を参考にした概算シミュレーションです。正確な保険料は自治体から届く通知をご確認ください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "40〜64歳の人数はなぜ入力が必要ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "40〜64歳は介護保険分（第2号被保険者）が保険料に影響するため、人数の入力が必要になります。"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <main class="wrap">
+    <p style="margin:0 0 8px;">
+      <a href="../" aria-label="トップへ戻る">← トップ（自治体一覧）へ</a>
+    </p>
+
+    <h1>茅ヶ崎市　国保電卓</h1>
+
+    <section class="card" aria-label="入力フォーム">
+      <label for="income">総所得金額等（世帯の合計の目安）</label>
+      <input id="income" type="number" inputmode="numeric" placeholder="例：2500000" />
+
+      <label for="insuredCount">国保の人数（被保険者数）</label>
+      <input id="insuredCount" type="number" inputmode="numeric" placeholder="例：3" />
+
+      <label for="careCount">介護分の対象人数（40〜64歳）</label>
+      <input id="careCount" type="number" inputmode="numeric" placeholder="例：1" />
+
+      <button id="calcBtn" type="button">計算</button>
+
+      <hr class="sep" />
+
+      <section class="result" aria-label="結果">
+        <div class="resultTitle">年間国保目安</div>
+        <div id="annual" class="resultValue">—</div>
+
+        <div class="resultTitle sub">月額目安（年間÷12）</div>
+        <div id="monthly" class="resultValue">—</div>
+
+        <details class="details">
+          <summary>内訳を見る</summary>
+          <pre id="breakdown" class="breakdown">—</pre>
+        </details>
+      </section>
+    </section>
+
+    <!-- SEO本文（検索の“本文評価”に効く） -->
+    <section class="seo-text">
+      <h2>茅ヶ崎市の国民健康保険料を簡単計算</h2>
+      <p>
+        このページは、茅ヶ崎市の国民健康保険（国保）の保険料目安を概算で計算するシミュレーターです。
+        世帯の所得目安・加入人数・40〜64歳人数を入力すると、年間と月額の目安、内訳を表示します。
+      </p>
+
+      <h3>国保計算機の使い方</h3>
+      <ol>
+        <li>総所得金額等（世帯の合計の目安）を入力</li>
+        <li>国保の人数（被保険者数）を入力</li>
+        <li>40〜64歳の人数を入力</li>
+        <li>年間保険料と月額目安が表示されます</li>
+      </ol>
+
+      <h3>注意</h3>
+      <p>実際の保険料は自治体から届く通知をご確認ください。</p>
+    </section>
+  </main>
+
+  <!-- 共通JS（パス注意：1つ上に戻る） -->
+  <script src="../app.js" defer></script>
+</body>
+</html>
