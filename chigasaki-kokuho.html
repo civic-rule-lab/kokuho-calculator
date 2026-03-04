@@ -68,8 +68,17 @@
     <h1>茅ヶ崎市　国保電卓</h1>
 
     <section class="card" aria-label="入力フォーム">
-      <label for="income">総所得金額等（世帯の合計の目安）</label>
-      <input id="income" type="number" inputmode="numeric" placeholder="例：2500000" />
+      <label for="income">総所得金額等（世帯の合計）</label>
+
+<div class="inputWithSuffix">
+  <input
+    id="income"
+    type="number"
+    inputmode="numeric"
+    placeholder="例：3000000"
+  />
+  <span class="suffix">円</span>
+</div>
 
       <label for="insuredCount">国保の人数（被保険者数）</label>
       <input id="insuredCount" type="number" inputmode="numeric" placeholder="例：3" />
