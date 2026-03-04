@@ -1,2 +1,8 @@
-# kokuho-calculator
-Rule-based civic calculation tools. First module: Chigasaki National Health Insurance calculator. （自治体制度のルールベース計算ツール）
+# 国保電卓 (kokuho-calculator)
+
+国民健康保険の自治体ルールをもとに計算するツール。
+
+## First module
+茅ヶ崎市 国民健康保険計算機
+
+Rule-based civic calculation tools for Japanese municipal systems.
