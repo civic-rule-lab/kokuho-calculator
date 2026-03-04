@@ -1,48 +1,84 @@
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "WebApplication",
- "name": "茅ヶ崎市 国保電卓",
- "url": "https://civic-rule-lab.github.io/kokuho-calculator/",
- "applicationCategory": "FinanceApplication",
- "operatingSystem": "Any",
- "description": "茅ヶ崎市の国民健康保険（国保）の保険料目安を計算するツール。世帯の総所得金額等と人数から年間と月額の目安を表示します。",
- "offers": {
-   "@type": "Offer",
-   "price": "0",
-   "priceCurrency": "JPY"
- }
-}
-</script>
+<!doctype html>
+<html lang="ja">
 <head>
+  <!-- Google Search Console（あなたの今の確認タグを1行だけ残す） -->
+  <!-- ↓ここはあなたの content="xxxxx" をそのまま貼る -->
+  <meta name="google-site-verification" content="ここをあなたのコードに置き換え" />
 
-<meta name="google-site-verification" content="ここはあなたの値のまま" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- SEO（検索に効く） -->
+  <title>茅ヶ崎市 国保電卓｜国民健康保険料の目安を簡単計算（世帯・人数・介護分）</title>
+  <meta name="description" content="茅ヶ崎市の国民健康保険（国保）の保険料目安を簡易計算。総所得金額等（世帯合計の目安）、被保険者数、介護分対象人数（40〜64歳）を入力すると自動で年間・月額目安と内訳を表示します。" />
+  <link rel="canonical" href="https://civic-rule-lab.github.io/kokuho-calculator/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
 
-<title>茅ヶ崎市 国民健康保険 計算ツール｜国保料金シミュレーター</title>
+  <!-- OGP（SNSでシェアされた時の見え方） -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="茅ヶ崎市 国保電卓｜国保料の目安を簡単計算" />
+  <meta property="og:description" content="茅ヶ崎市の国民健康保険（国保）の保険料目安を簡易計算。入力すると年間・月額目安と内訳を表示します。" />
+  <meta property="og:url" content="https://civic-rule-lab.github.io/kokuho-calculator/" />
 
-<meta name="description" content="茅ヶ崎市の国民健康保険（国保）の目安を簡易計算。世帯の総所得金額等と人数から年間保険料と月額の目安を表示します。" />
+  <!-- 構造化データ（検索強化） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "茅ヶ崎市 国保電卓",
+    "url": "https://civic-rule-lab.github.io/kokuho-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "description": "茅ヶ崎市の国民健康保険（国保）の保険料目安を簡易計算。総所得金額等（世帯合計の目安）、被保険者数、介護分対象人数（40〜64歳）から年間・月額目安と内訳を表示。",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    }
+  }
+  </script>
 
-<link rel="canonical"
-href="https://civic-rule-lab.github.io/kokuho-calculator/" />
-
-<meta name="robots" content="index,follow" />
-
-<meta property="og:type" content="website" />
-<meta property="og:title" content="茅ヶ崎市 国保電卓｜国民健康保険 計算ツール" />
-<meta property="og:description"
-content="茅ヶ崎市の国保目安を簡易計算。年間と月額の目安を表示します。" />
-<script type="application/ld+json">
-{
-JSON
-}
-</script>
-<meta property="og:url"
-content="https://civic-rule-lab.github.io/kokuho-calculator/" />
-<script type="application/ld+json">
-
-<link rel="stylesheet" href="style.css" />
-
+  <link rel="stylesheet" href="style.css" />
 </head>
+
+<body>
+  <main class="wrap">
+    <h1>茅ヶ崎市 国保電卓</h1>
+
+    <section class="card" aria-label="入力フォーム">
+      <label for="income">総所得金額等（世帯の合計の目安）<span class="note">※簡易</span></label>
+      <input id="income" type="number" inputmode="numeric" placeholder="例：3160000" min="0" step="1" />
+
+      <label for="insuredCount">国保の人数（被保険者数）</label>
+      <input id="insuredCount" type="number" inputmode="numeric" placeholder="例：4" min="1" step="1" />
+
+      <label for="careCount">介護分の対象人数（40〜64歳の人数）</label>
+      <input id="careCount" type="number" inputmode="numeric" placeholder="例：1" min="0" step="1" />
+
+      <button id="calcBtn" type="button">計算</button>
+
+      <hr class="sep" />
+
+      <section class="result" aria-label="結果">
+        <div class="resultTitle">年間国保目安</div>
+        <div id="annual" class="resultValue">—</div>
+
+        <div class="resultTitle sub">月額目安（年間÷12）</div>
+        <div id="monthly" class="resultValue">—</div>
+
+        <details class="details">
+          <summary>内訳を見る</summary>
+          <pre id="breakdown" class="breakdown">—</pre>
+        </details>
+
+        <p class="foot">
+          ※簡易計算：所得割の賦課標準は「総所得金額等 − 基礎控除43万円」を世帯合計で1回だけ適用して計算しています（本来は所得がある被保険者ごと）。<br />
+          参考：茅ヶ崎市公式サイト（FAQ等）
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
