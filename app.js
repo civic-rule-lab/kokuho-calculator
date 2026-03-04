@@ -1,18 +1,15 @@
-function calculateKokuho() {
-  const income = Number(document.getElementById("income").value);
-  const dependents = Number(document.getElementById("dependents").value);
+function calc(){
 
-  if (!income) {
-    alert("所得を入力してください");
-    return;
-  }
+const income = Number(document.getElementById("income").value);
+const people = Number(document.getElementById("people").value);
 
-  // 簡易計算（テスト用）
-  const base = income * 0.1;
-  const perPerson = dependents * 20000;
+const rate = 0.06;
+const perPerson = 35000;
 
-  const total = Math.floor(base + perPerson);
+const result =
+(income * rate) + (people * perPerson);
 
-  document.getElementById("result").innerText =
-    "年間国保目安: " + total.toLocaleString() + " 円";
+document.getElementById("result").innerText =
+"年間国保目安 : " + result.toLocaleString() + " 円";
+
 }
