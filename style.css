@@ -140,3 +140,14 @@ button:active{ transform: translateY(1px); }
   .card{ padding: 20px 16px; }
   .resultValue{ font-size: 40px; }
 }
+.seo{
+margin-top:40px;
+padding:20px;
+line-height:1.7;
+background:#fafafa;
+border-radius:8px;
+}
+
+.seo h2{
+margin-top:0;
+}
