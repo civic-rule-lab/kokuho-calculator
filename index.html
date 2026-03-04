@@ -1,32 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>茅ヶ崎 国保電卓</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>茅ヶ崎 国保電卓</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
+  <main class="wrap">
+    <h1>茅ヶ崎 国保電卓</h1>
 
-<div class="wrap">
+    <div class="card">
+      <label class="label" for="income">
+        総所得金額等（世帯の合計の目安）※簡易
+      </label>
+      <input id="income" type="number" inputmode="numeric" placeholder="例：3160000" />
 
-<h1>茅ヶ崎 国保電卓</h1>
+      <label class="label" for="insuredCount">
+        国保の人数（被保険者数）
+      </label>
+      <input id="insuredCount" type="number" inputmode="numeric" min="1" placeholder="例：4" />
 
-<p>所得を入力</p>
+      <label class="label" for="nursingCount">
+        介護分の対象人数（40〜64歳の人数）
+      </label>
+      <input id="nursingCount" type="number" inputmode="numeric" min="0" placeholder="例：1" />
 
-<input id="income" type="number" placeholder="例 3000000">
+      <button id="calcBtn" type="button">計算</button>
 
-<p>人数</p>
+      <div class="result">
+        <div class="result-title">年間国保目安</div>
+        <div id="result" class="result-value">—</div>
+        <details class="details">
+          <summary>内訳を見る</summary>
+          <pre id="breakdown" class="breakdown">—</pre>
+        </details>
 
-<input id="people" type="number" value="1">
+        <p class="note">
+          ※簡易計算：所得割の賦課標準は「総所得金額等 − 基礎控除43万円」を1回だけ適用して計算しています（本来は所得がある被保険者ごと）。  [oai_citation:1‡茅ヶ崎市公式サイト](https://www.city.chigasaki.kanagawa.jp/faq/1000004/1000042/1000052.html)
+        </p>
+      </div>
+    </div>
+  </main>
 
-<button onclick="calc()">計算</button>
-
-<h2 id="result"></h2>
-
-</div>
-
-<script src="app.js"></script>
-
+  <script src="./app.js"></script>
 </body>
 </html>
