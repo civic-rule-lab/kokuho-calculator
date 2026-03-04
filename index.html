@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <title>茅ヶ崎 国保電卓</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<h1>茅ヶ崎 国保電卓（試作）</h1>
+<div class="wrap">
+
+<h1>茅ヶ崎 国保電卓</h1>
 
 <p>所得を入力</p>
 
-<input id="income" type="number" placeholder="例：3000000">
+<input id="income" type="number" placeholder="例 3000000">
+
+<p>人数</p>
+
+<input id="people" type="number" value="1">
 
 <button onclick="calc()">計算</button>
 
 <h2 id="result"></h2>
+
+</div>
 
 <script src="app.js"></script>
 
