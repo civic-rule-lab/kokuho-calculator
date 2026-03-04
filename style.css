@@ -1,36 +1,112 @@
+:root{
+  --bg:#f4f6fb;
+  --card:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --primary:#2f5eea;
+}
+
+*{ box-sizing:border-box; }
 body{
-font-family: system-ui;
-background:#f5f7fb;
-margin:0;
+  margin:0;
+  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
 .wrap{
-max-width:400px;
-margin:auto;
-padding:30px;
-background:white;
-margin-top:40px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-input{
-width:100%;
-padding:12px;
-margin-bottom:10px;
-font-size:16px;
-}
-
-button{
-width:100%;
-padding:12px;
-font-size:16px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
+  max-width:720px;
+  margin:0 auto;
+  padding:32px 16px;
 }
 
 h1{
-text-align:center;
+  text-align:center;
+  margin: 10px 0 18px;
+  letter-spacing: .02em;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.label{
+  display:block;
+  font-weight:700;
+  margin-top:14px;
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  padding:14px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  font-size:16px;
+  outline:none;
+  background:#fff;
+}
+
+input:focus{
+  border-color: rgba(47,94,234,.65);
+  box-shadow: 0 0 0 4px rgba(47,94,234,.12);
+}
+
+button{
+  width:100%;
+  margin-top:16px;
+  padding:16px 14px;
+  border:none;
+  border-radius:12px;
+  background:var(--primary);
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+button:active{
+  transform: translateY(1px);
+}
+
+.result{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+}
+
+.result-title{
+  font-weight:800;
+  color:var(--muted);
+}
+
+.result-value{
+  font-size:28px;
+  font-weight:900;
+  margin-top:6px;
+}
+
+.details{
+  margin-top:12px;
+}
+
+.breakdown{
+  margin:10px 0 0;
+  padding:12px;
+  border-radius:12px;
+  background:#0b1220;
+  color:#e5e7eb;
+  overflow:auto;
+}
+
+.note{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
 }
