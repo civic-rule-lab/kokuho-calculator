@@ -208,19 +208,21 @@ body{
   margin-top: 20px;
   padding-left: 16px;
 }
-/* SEOタイトル中央 */
+/* SEOブロック：タイトル中央 */
 .seo-text h2{
-  text-align: center;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* 小見出しを少し左へ */
-.seo-text h3{
-  margin-left: 20px;
+/* 小見出し：少し左（本文ラインに合わせる） */
+.seo-text h3,
+.seo-text .note-title{
+  margin-left: 20px !important;
 }
 
-/* 注意も同じ位置 */
+/* 注意見出しが strong の場合の保険 */
 .seo-text strong{
-  margin-left: 20px;
   display: inline-block;
+  margin-left: 20px !important;
 }
-
