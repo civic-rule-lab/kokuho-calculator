@@ -151,3 +151,23 @@ border-radius:8px;
 .seo h2{
 margin-top:0;
 }
+/* 入力欄の右側に円を固定表示 */
+.inputWithSuffix{
+  position: relative;
+}
+
+.inputWithSuffix input{
+  width: 100%;
+  padding-right: 48px;
+  box-sizing: border-box;
+}
+
+.inputWithSuffix .suffix{
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 600;
+  color: #666;
+  pointer-events: none;
+}
