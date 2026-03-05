@@ -10,7 +10,11 @@ const btn = document.getElementById("calcBtn");
 const elAnnual = document.getElementById("annual");
 const elMonthly = document.getElementById("monthly");
 const elBreakdown = document.getElementById("breakdown");
+const elBreakdown = document.getElementById("breakdown");
 
+function yen(n){
+  return Math.round(n).toLocaleString() + "円";
+}
 // ---- 設定（いまは仮の係数）----
 // ※あなたの今の計算ロジックがあるなら、ここを後で“茅ヶ崎ルール値”に差し替えてOK
 const BASIC_DEDUCTION = 430000;      // 基礎控除（簡易）
