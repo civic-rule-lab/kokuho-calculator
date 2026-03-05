@@ -193,3 +193,13 @@ body{
   font-size: 18px;
   margin: 20px 0 8px;
 }
+.seo-text p{
+  font-size:14px;
+  line-height:1.8;
+  max-width:520px;
+  margin:0 auto 18px;
+}
+.seo-text h2{
+  text-align:center;
+  margin-bottom:16px;
+}
