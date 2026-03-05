@@ -99,15 +99,22 @@ function calc() {
 `;
 }
 
-// 自動計算：入力した瞬間
+// 入力中は「ー」に戻して、計算はしない（ボタンの意味を残す）
+function resetResult() {
+  elAnnual.textContent = "—";
+  elMonthly.textContent = "—";
+  elBreakdown.textContent = "";
+}
+
+// 入力が変わったら結果だけ消す
 ["input", "change"].forEach(evt => {
-  elIncome.addEventListener(evt, calc);
-  elInsured.addEventListener(evt, calc);
-  elCare.addEventListener(evt, calc);
+  elIncome.addEventListener(evt, resetResult);
+  elInsured.addEventListener(evt, resetResult);
+  elCare.addEventListener(evt, resetResult);
 });
 
-// ボタンでも計算
+// ボタン押下で計算（これが唯一の計算トリガ）
 btn.addEventListener("click", calc);
 
-// 初期表示
-calc();
+// 初期表示は空（勝手に計算しない）
+resetResult();
