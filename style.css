@@ -176,9 +176,12 @@ body{
   box-sizing: border-box;
 }
 /* SEO文章エリアの左右余白 */
-.seo-text {
+.seo-text p,
+.seo-text ol{
   padding-left: 20px;
   padding-right: 20px;
+  font-size: 16px;
+  line-height: 1.7;
 }
 /* 見出し */
 .seo-text h2{
