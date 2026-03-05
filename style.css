@@ -226,3 +226,27 @@ body{
   display: inline-block;
   margin-left: 20px !important;
 }
+/* SEOブロックの幅調整 */
+.seo-text{
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* メインタイトル中央 */
+.seo-text h2{
+  text-align: center;
+}
+
+/* 小見出し（国保計算機の使い方・注意） */
+.seo-text h3{
+  text-align: left;
+  margin-left: 0;
+}
+
+/* 注意 */
+.seo-text strong{
+  margin-left: 0;
+}
+
+
+
