@@ -1,6 +1,7 @@
 // 茅ヶ崎市 国保電卓（簡易）
 // 入力した瞬間に自動計算 + ボタンでも計算
 
+const elResult = document.getElementById("result");
 const elIncome = document.getElementById("income");
 const elInsured = document.getElementById("insuredCount");
 const elCare = document.getElementById("careCount");
