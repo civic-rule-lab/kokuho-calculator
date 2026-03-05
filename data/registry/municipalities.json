@@ -1,1 +1,8 @@
-
+[
+  {
+    "prefectureId": "kanagawa",
+    "cityId": "chigasaki",
+    "nameJa": "茅ヶ崎市",
+    "rulesPath": "data/kokuho/chigasaki.json"
+  }
+]
