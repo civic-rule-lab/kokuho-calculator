@@ -208,4 +208,19 @@ body{
   margin-top: 20px;
   padding-left: 16px;
 }
+/* SEOタイトル中央 */
+.seo-text h2{
+  text-align: center;
+}
+
+/* 小見出しを少し左へ */
+.seo-text h3{
+  margin-left: 20px;
+}
+
+/* 注意も同じ位置 */
+.seo-text strong{
+  margin-left: 20px;
+  display: inline-block;
+}
 
