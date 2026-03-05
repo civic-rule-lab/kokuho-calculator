@@ -23,10 +23,7 @@ const PER_CAPITA = 20000;            // 均等割（仮）/人
 const CARE_PER_CAPITA = 12000;       // 介護分均等割（仮）/人
 const MAX_ANNUAL = 99999999;         // 表示の上限（保険料上限を後で実装するならここで制御）
 
-function yen(n) {
-  const v = Math.max(0, Math.round(n));
-  return v.toLocaleString("ja-JP") + " 円";
-}
+
 
 function toInt(value) {
   if (value === "" || value === null || value === undefined) return NaN;
