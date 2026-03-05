@@ -175,3 +175,8 @@ body{
   padding: 0 16px;
   box-sizing: border-box;
 }
+/* SEO文章エリアの左右余白 */
+.seo-text {
+  padding-left: 20px;
+  padding-right: 20px;
+}
