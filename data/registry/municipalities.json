@@ -6,4 +6,10 @@
     "cityName": "茅ヶ崎市",
     "kana": "ちがさきし"
   }
-]
+]{
+  "cityId": "fujisawa",
+  "prefectureId": "kanagawa",
+  "prefectureName": "神奈川県",
+  "cityName": "藤沢市",
+  "kana": "ふじさわし"
+}
