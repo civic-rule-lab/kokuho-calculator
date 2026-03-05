@@ -2,48 +2,22 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>自治体一覧 | 国保電卓</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>国保電卓｜自治体ごとの国民健康保険料計算</title>
 </head>
 
 <body>
 
-<h1>自治体一覧</h1>
+<h1>国保電卓</h1>
 
-<ul id="municipalityList">
-読み込み中...
-</ul>
+<p>
+自治体ごとの国民健康保険料を
+簡単に計算できるシミュレーターです。
+</p>
 
-<p><a href="./">トップへ</a></p>
-
-<script>
-
-async function loadMunicipalities(){
-
-const res = await fetch("data/registry/municipalities.json");
-const data = await res.json();
-
-const list = document.getElementById("municipalityList");
-list.innerHTML = "";
-
-data.forEach(city => {
-
-const li = document.createElement("li");
-const a = document.createElement("a");
-
-a.href = city.cityId + "-kokuho.html";
-a.textContent = city.nameJa;
-
-li.appendChild(a);
-list.appendChild(li);
-
-});
-
-}
-
-loadMunicipalities();
-
-</script>
+<p>
+<a href="./list.html">自治体一覧を見る</a>
+</p>
 
 </body>
 </html>
