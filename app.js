@@ -76,11 +76,7 @@ function calc() {
 
   const calcLog = {
   calcId: `CRL-${Date.now()}`,
-  cityCode: "14207",
-  cityId: "chigasaki",
-  system: "kokuho",
-  fiscalYear: 2025,
-  ruleVersion: "v1",
+  ...META,
   timestamp: new Date().toISOString(),
   input: {
     income: income,
