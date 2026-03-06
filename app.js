@@ -26,10 +26,13 @@ const MAX_ANNUAL = 99999999;         // 表示の上限（保険料上限を後�
 
 
 function toInt(value) {
-  if (value === "" || value === null || value === undefined) return NaN;
-  const n = Number(value);
-  if (!Number.isFinite(n)) return NaN;
-  return Math.floor(n);
+  ...
+}
+
+function calc() {
+  const income = ...
+  const insured = ...
+  const care = ...
 }
 
 const income = toInt(elIncome.value || 0);
