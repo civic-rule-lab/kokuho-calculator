@@ -67,7 +67,7 @@ const care = toInt(elCare.value || 0);
 
   const calcLog = {
   calcId: `CRL-${Date.now()}`,
-  ...META,
+  
   timestamp: new Date().toISOString(),
   input: {
     income: income,
