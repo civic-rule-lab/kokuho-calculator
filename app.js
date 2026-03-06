@@ -123,8 +123,8 @@ function resetResult() {
   elCare.addEventListener(evt, resetResult);
 });
 
-// ボタン押下で計算（これが唯一の計算トリガ）
 btn.addEventListener("click", () => {
+  alert("ボタンOK");
   calc();
 });
 
