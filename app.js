@@ -135,7 +135,6 @@ function resetResult() {
 // ボタン押下で計算（これが唯一の計算トリガ）
 btn.addEventListener("click", () => {
   calc();
-  elResult.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 // 初期表示は空（勝手に計算しない）
