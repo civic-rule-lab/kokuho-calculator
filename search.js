@@ -14,7 +14,7 @@ searchBox.addEventListener("input", function () {
 
   const filtered = municipalities.filter(city =>
     city.cityName.includes(keyword) ||
-    city.cityId.includes(keyword.toLowerCase()) ||
+    city.cityId.toLowerCase().includes(keyword.toLowerCase())
     city.prefecture.includes(keyword)
   );
 
