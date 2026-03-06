@@ -18,10 +18,17 @@
       margin-bottom: 8px;
     }
 
-    p.lead {
+    .lead {
       text-align: center;
       color: #555;
       margin-top: 0;
+      margin-bottom: 24px;
+    }
+
+    .box {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 16px;
       margin-bottom: 24px;
     }
 
@@ -31,6 +38,8 @@
       font-size: 16px;
       margin-bottom: 20px;
       box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
 
     ul {
@@ -48,6 +57,11 @@
       text-decoration: none;
       color: #0b57d0;
     }
+
+    .muted {
+      color: #888;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -55,9 +69,16 @@
   <h1>Civic Rule Lab</h1>
   <p class="lead">自治体制度を確認できる計算ツール</p>
 
-  <input id="searchBox" type="text" placeholder="自治体名を入力（例：茅ヶ崎市）">
+  <div class="box">
+    <strong>現在公開中</strong><br>
+    茅ヶ崎市 国民健康保険料 簡易計算ツール
+  </div>
 
-  <ul id="results"></ul>
+  <div class="box">
+    <label for="searchBox"><strong>自治体を検索</strong></label>
+    <input id="searchBox" type="text" placeholder="自治体名を入力（例：茅ヶ崎市）">
+    <ul id="results"></ul>
+  </div>
 
   <script src="search.js"></script>
 </body>
