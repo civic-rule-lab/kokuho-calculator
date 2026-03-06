@@ -1,1 +1,42 @@
-
+{
+  "description": "Civic Rule Lab 自治体マスター",
+  "version": 1,
+  "items": [
+    {
+      "cityCode": "14207",
+      "cityId": "chigasaki",
+      "cityName": "茅ヶ崎市",
+      "prefCode": "14",
+      "prefecture": "神奈川県",
+      "type": "city",
+      "status": "active"
+    },
+    {
+      "cityCode": "14205",
+      "cityId": "fujisawa",
+      "cityName": "藤沢市",
+      "prefCode": "14",
+      "prefecture": "神奈川県",
+      "type": "city",
+      "status": "planned"
+    },
+    {
+      "cityCode": "14203",
+      "cityId": "hiratsuka",
+      "cityName": "平塚市",
+      "prefCode": "14",
+      "prefecture": "神奈川県",
+      "type": "city",
+      "status": "planned"
+    },
+    {
+      "cityCode": "13111",
+      "cityId": "ota",
+      "cityName": "大田区",
+      "prefCode": "13",
+      "prefecture": "東京都",
+      "type": "special_ward",
+      "status": "planned"
+    }
+  ]
+}
