@@ -24,17 +24,7 @@ const CARE_PER_CAPITA = 12000;       // 介護分均等割（仮）/人
 const MAX_ANNUAL = 99999999;         // 表示の上限（保険料上限を後で実装するならここで制御）
 
 
-
-function toInt(value) {
-  ...
-}
-
 function calc() {
-  const income = ...
-  const insured = ...
-  const care = ...
-}
-
 const income = toInt(elIncome.value || 0);
 const insured = toInt(elInsured.value || 0);
 const care = toInt(elCare.value || 0);
