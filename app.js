@@ -32,11 +32,9 @@ function toInt(value) {
   return Math.floor(n);
 }
 
-function calc() {
-  const income = toInt(elIncome.value);
-  const insured = toInt(elInsured.value);
-  const care = toInt(elCare.value);
-
+const income = toInt(elIncome.value || 0);
+const insured = toInt(elInsured.value || 0);
+const care = toInt(elCare.value || 0);
   // 入力が足りないときは表示を戻す
   if (!Number.isFinite(income) || !Number.isFinite(insured) || !Number.isFinite(care)) {
     elAnnual.textContent = "—";
