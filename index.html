@@ -1,251 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google Search Console（あなたの今の確認タグを1行だけ残す） -->
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-　<meta name="keywords" content="国保計算, 国保計算機, 国保シミュレーション, 国民健康保険 計算, 茅ヶ崎市 国保">
-  <!-- SEO（検索に効く） -->
-  <title>茅ヶ崎市 国保電卓｜国民健康保険料の目安を自動計算（世帯・人数・介護分）</title>
-  <meta name="description" content="茅ヶ崎市の国民健康保険（国保）の保険料目安を簡易計算。総所得金額等（世帯合計の目安）、被保険者数、介護分対象人数（40〜64歳）を入力すると自動で年間・月額目安と内訳を表示します。" />
-  <link rel="canonical" href="https://civic-rule-lab.github.io/kokuho-calculator/" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-
-  <!-- OGP（SNSでシェアされた時の見え方） -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="茅ヶ崎市 国保電卓｜国保料の目安を簡単計算" />
-  <meta property="og:description" content="茅ヶ崎市の国民健康保険（国保）の保険料目安を簡易計算。入力すると年間・月額目安と内訳を表示します。" />
-  <meta property="og:url" content="https://civic-rule-lab.github.io/kokuho-calculator/" />
-  
-  <meta property="og:image" content="https://civic-rule-lab.github.io/kokuho-calculator/ogp.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="茅ヶ崎市 国保計算機のイメージ">
-
-  <!-- 構造化データ（検索強化） -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "茅ヶ崎市 国保電卓",
-    "url": "https://civic-rule-lab.github.io/kokuho-calculator/",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "description": "茅ヶ崎市の国民健康保険（国保）の保険料目安を簡易計算。総所得金額等（世帯合計の目安）、被保険者数、介護分対象人数（40〜64歳）から年間・月額目安と内訳を表示。",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "JPY"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civic Rule Lab</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
     }
-  }
-  </script>
 
-  <link rel="stylesheet" href="style.css" />
-  <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"茅ヶ崎市の国保（国民健康保険料）はいくら？",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"世帯の所得、加入人数、40〜64歳の人数（介護分）などで変わります。このページの国保電卓に入力すると、年間・月額の目安を自動計算できます。"
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"この国保電卓は正確ですか？",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"本ツールは茅ヶ崎市の計算方式を参考にした概算のシミュレーションです。実際の保険料は自治体の決定通知をご確認ください。"
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"入力する「総所得金額等」とは？",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"世帯の所得をもとにした金額の目安です。詳細な定義や賦課標準の扱いは自治体の資料をご確認ください。"
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"介護分の対象人数（40〜64歳）とは？",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"国保加入者のうち40〜64歳の人数です。該当人数を入力すると介護分を考慮した目安を表示します。"
-      }
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
     }
-  ]
-}
-</script>
-<!-- FAQ 構造化データ（検索結果を強化） -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "この国保電卓は公式の保険料と同じですか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "このツールは茅ヶ崎市の計算方式を参考にした概算シミュレーターです。実際の保険料は世帯状況や各種控除、年度の料率改定などで変動するため、最終的には自治体からの通知をご確認ください。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "入力する「総所得金額等」は何を入れればいいですか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "原則として前年の所得（確定申告書や源泉徴収票などで確認できる金額）を目安に入力します。世帯の合計所得を入力する想定です。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "加入人数とは誰を数えますか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "国民健康保険に加入している世帯員の人数を入力します（会社の健康保険等に加入している人は含めません）。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "40〜64歳の人数はなぜ必要ですか？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "40〜64歳は介護保険分（第2号被保険者）が保険料計算に影響するためです。該当する人数を入力してください。"
-      }
+
+    p.lead {
+      text-align: center;
+      color: #555;
+      margin-top: 0;
+      margin-bottom: 24px;
     }
-  ]
-}
-</script>
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      padding: 12px 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0b57d0;
+    }
+  </style>
 </head>
-
 <body>
-  <main class="wrap">
-    <h1>茅ヶ崎市 国保電卓</h1>
-    <p>
-自治体ページ：
-<a href="chigasaki-kokuho.html">茅ヶ崎市の国民健康保険料を計算する</a>
-</p>
 
-    <section class="card" aria-label="入力フォーム">
-      <label for="income">総所得金額等（世帯の合計の目安）<span class="note">※簡易</span></label>
-      <input id="income" type="number" inputmode="numeric" placeholder="例：3160000" min="0" step="1" />
+  <h1>Civic Rule Lab</h1>
+  <p class="lead">自治体制度を確認できる計算ツール</p>
 
-      <label for="insuredCount">国保の人数（被保険者数）</label>
-      <input id="insuredCount" type="number" inputmode="numeric" placeholder="例：4" min="1" step="1" />
+  <input id="searchBox" type="text" placeholder="自治体名を入力（例：茅ヶ崎市）">
 
-      <label for="careCount">介護分の対象人数（40〜64歳の人数）</label>
-      <input id="careCount" type="number" inputmode="numeric" placeholder="例：1" min="0" step="1" />
+  <ul id="results"></ul>
 
-      <button id="calcBtn" type="button">計算</button>
-
-      <hr class="sep" />
-
-      <section class="result" aria-label="結果">
-        <div class="resultTitle">年間国保目安</div>
-        <div id="annual" class="resultValue">—</div>
-
-        <div class="resultTitle sub">月額目安（年間÷12）</div>
-        <div id="monthly" class="resultValue">—</div>
-
-        <details class="details">
-          <summary>内訳を見る</summary>
-          <pre id="breakdown" class="breakdown">—</pre>
-        </details>
-
-        <p class="foot">
-          ※簡易計算：所得割の賦課標準は「総所得金額等 − 基礎控除43万円」を世帯合計で1回だけ適用して計算しています（本来は所得がある被保険者ごと）。<br />
-          参考：茅ヶ崎市公式サイト（FAQ等）
-        </p>
-      </section>
-    </section>
-    <section class="seo-text">
-
-<h2 style="text-align:center;">茅ヶ崎市の国民健康保険料を自動計算</h2>
-
-<p>
-このページでは茅ヶ崎市の国民健康保険料の目安を簡単に計算できます。
-世帯の所得と加入人数を入力することで年間保険料と月額の目安を表示します。
-</p>
-
-<h3>国保計算機の使い方</h3>
-
-<ol>
-<li>世帯の所得を入力</li>
-<li>加入人数を入力</li>
-<li>40〜64歳の人数を入力</li>
-<li>年間保険料と月額が自動計算されます</li>
-</ol>
-
-<h3>この国保シミュレーターについて</h3>
-
-<p>
-このツールは茅ヶ崎市の国民健康保険の計算方式を参考にしたシミュレーションです。
-実際の保険料は自治体からの通知をご確認ください。
-</p>
-
-</section>
-  </main>
-  
-  <section class="seo">
-<h2>茅ヶ崎市の国民健康保険料を計算</h2>
-
-<p>
-このページでは、茅ヶ崎市の国民健康保険料の目安を簡単に計算できます。
-世帯の所得と人数を入力することで、年間保険料と月額目安を自動計算します。
-</p>
-
-<h3>国保計算機の使い方</h3>
-
-<ol>
-<li>世帯の所得を入力</li>
-<li>加入人数を入力</li>
-<li>40歳〜64歳の人数を入力</li>
-<li>年間保険料と月額が自動表示</li>
-</ol>
-
-<h3>この国保シミュレーターについて</h3>
-
-<p>
-このツールは茅ヶ崎市の国民健康保険料の計算方式を参考に、
-概算の保険料を計算するシミュレーションツールです。
-実際の保険料は自治体の通知をご確認ください。
-</p>
-</section>
-
-   <section class="seo-text">
-
-<h2>茅ヶ崎市の国民健康保険料を簡単計算</h2>
-
-<p>
-このページでは茅ヶ崎市の国民健康保険料の目安を簡単に計算できます。
-世帯の所得と加入人数を入力すると年間保険料と月額目安が自動表示されます。
-</p>
-
-<h3>国保計算機の使い方</h3>
-
-<ol>
-<li>世帯の所得を入力</li>
-<li>加入人数を入力</li>
-<li>40〜64歳の人数を入力</li>
-<li>年間保険料と月額が自動表示されます</li>
-</ol>
-
-<h3>この国保シミュレーターについて</h3>
-
-<p>
-このツールは茅ヶ崎市の国民健康保険の計算方式を参考にした概算シミュレーションです。
-実際の保険料は自治体から届く通知をご確認ください。
-</p>
-
-</section>
-<script src="app.js" defer></script>
+  <script src="search.js"></script>
 </body>
 </html>
