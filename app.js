@@ -74,6 +74,27 @@ function calc() {
 
   const monthly = annual / 12;
 
+  const calcLog = {
+  calcId: `CRL-${Date.now()}`,
+  cityCode: "14207",
+  cityId: "chigasaki",
+  system: "kokuho",
+  fiscalYear: 2025,
+  ruleVersion: "v1",
+  timestamp: new Date().toISOString(),
+  input: {
+    income: income,
+    insured: insured,
+    care: care
+  },
+  result: {
+    annual: annual,
+    monthly: monthly
+  }
+};
+
+console.log("CivicRuleLab calcLog:", calcLog);
+
   elAnnual.textContent = yen(annual);
   elMonthly.textContent = yen(monthly);
 
