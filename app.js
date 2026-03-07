@@ -6,7 +6,7 @@ const elIncome = document.getElementById("income");
 const elInsured = document.getElementById("insuredCount");
 const elCare = document.getElementById("careCount");
 const btn = document.getElementById("calcBtn");
-
+console.log("JS読み込みOK");
 const elAnnual = document.getElementById("annual");
 const elMonthly = document.getElementById("monthly");
 const elBreakdown = document.getElementById("breakdown");
