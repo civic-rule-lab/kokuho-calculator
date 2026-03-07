@@ -2,7 +2,7 @@ const municipalities = [
   {
     cityName: "茅ヶ崎市",
     prefecture: "神奈川県",
-    file: "chigasaki-kokuho.html",
+    file: "/chigasaki-kokuho.html",
     status: "active"
   },
   {
@@ -29,9 +29,12 @@ const searchBox = document.getElementById("searchBox");
 const cityList = document.getElementById("cityList");
 
 function renderList(keyword = "") {
-
   const q = keyword.trim().toLowerCase();
   cityList.innerHTML = "";
+
+  if (q === "") {
+    return;
+  }
 
   municipalities
     .filter(city => {
@@ -39,39 +42,10 @@ function renderList(keyword = "") {
       return text.includes(q);
     })
     .forEach(city => {
-
       const li = document.createElement("li");
 
       if (city.status === "active") {
-
         li.innerHTML = `
           <div class="city-name">${city.cityName}</div>
           <div class="city-meta">${city.prefecture}｜国民健康保険料計算ツール</div>
         `;
-
-        li.style.cursor = "pointer";
-
-        li.addEventListener("click", () => {
-          window.location.href = city.file;
-        });
-
-      } else {
-
-        li.innerHTML = `
-          <div class="city-name plain">${city.cityName}</div>
-          <div class="city-meta">${city.prefecture}｜準備中</div>
-        `;
-
-      }
-
-      cityList.appendChild(li);
-
-    });
-
-}
-
-searchBox.addEventListener("input", () => {
-  renderList(searchBox.value);
-});
-
-renderList();
