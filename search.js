@@ -40,19 +40,19 @@ function renderList(keyword = "") {
     .forEach(city => {
       const li = document.createElement("li");
 
-      if (city.status === "active") {
-        li.innerHTML = `
-          <a href="${city.file}" class="city-link">
-            <div class="city-name">${city.cityName}</div>
-            <div class="city-meta">${city.prefecture}｜国民健康保険料計算ツール</div>
-          </a>
-        `;
-      } else {
-        li.innerHTML = `
-          <div class="city-name plain">${city.cityName}</div>
-          <div class="city-meta">${city.prefecture}｜準備中</div>
-        `;
-      }
+     if (city.status === "active") {
+  li.innerHTML = `
+    <a href="${city.file}" class="city-link">
+      <div class="city-name">${city.cityName}</div>
+      <div class="city-meta">${city.prefecture}｜国民健康保険料計算ツール</div>
+    </a>
+  `;
+} else {
+  li.innerHTML = `
+    <div class="city-name plain">${city.cityName}</div>
+    <div class="city-meta">${city.prefecture}｜準備中</div>
+  `;
+}
 
       cityList.appendChild(li);
     });
