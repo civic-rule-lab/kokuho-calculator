@@ -1,189 +1,189 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>全国の国保計算ツール一覧 | Civic Rule Lab</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      font-family: system-ui, -apple-system, sans-serif;
-     .city-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-  width:100%;
-}
+<title>全国の国保計算ツール一覧</title>
 
-.city-link:visited{
-  color:inherit;
-}
+<style>
 
-.city-list li{
-  border-top:1px solid #eceff5;
-  padding:16px 0;
-  cursor:pointer;
 body{
-  background:#f5f7fb;
-  margin:0;
-  color:#222;
+font-family:-apple-system,BlinkMacSystemFont;
+margin:0;
+padding:20px;
+color:#222;
 }
 
-.city-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-  width:100%;
+.wrap{
+max-width:760px;
+margin:auto;
 }
 
-.city-link:visited{
-  color:inherit;
+h1{
+font-size:32px;
+text-align:center;
+margin-bottom:10px;
+}
+
+.lead{
+text-align:center;
+color:#555;
+margin-bottom:40px;
+}
+
+.search-box{
+margin-bottom:20px;
+}
+
+.search-box input{
+width:100%;
+padding:14px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.city-list{
+list-style:none;
+padding:0;
+margin:0;
 }
 
 .city-list li{
-  border-top:1px solid #eceff5;
-  padding:16px 0;
-  cursor:pointer;
+padding:18px 0;
+border-top:1px solid #eee;
+cursor:pointer;
 }
-      
 
-    .wrap{
-      max-width:760px;
-      margin:40px auto;
-      padding:0 20px 60px;
-    }
+.city-name{
+font-size:18px;
+font-weight:600;
+color:#2563eb;
+}
 
-    h1{
-      text-align:center;
-      line-height:1.4;
-      margin:10px 0 14px;
-      font-size:34px;
-    }
+.city-meta{
+font-size:14px;
+color:#666;
+margin-top:4px;
+}
 
-    .lead{
-      max-width:620px;
-      margin:0 auto 28px;
-      text-align:center;
-      line-height:1.9;
-      color:#555;
-    }
+.plain{
+color:#222;
+}
 
-    .card{
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.08);
-      padding:24px 20px;
-      max-width:680px;
-      margin:0 auto 24px;
-    }
-
-    .card h2{
-      margin:0 0 14px;
-      font-size:22px;
-    }
-
-    .searchBox{
-      width:100%;
-      box-sizing:border-box;
-      padding:14px;
-      border:1px solid #d8dee8;
-      border-radius:8px;
-      font-size:16px;
-    }
-
-    .city-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 0;
-    }
-
-    .city-list li{
-      border-top:1px solid #eceff5;
-      padding:16px 0;
-    }
-
-    .city-list li:first-child{
-      border-top:none;
-      padding-top:0;
-    }
-
-    .city-link{
-      display:block;
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .city-name{
-      color:#2563eb;
-      font-weight:700;
-      font-size:18px;
-    }
-
-    .city-name.plain{
-      color:#222;
-    }
-
-    .city-meta{
-      margin-top:6px;
-      color:#666;
-      font-size:14px;
-    }
-
-    .section-title{
-      max-width:680px;
-      margin:40px auto 12px;
-      text-align:center;
-      font-size:22px;
-    }
-
-    .section-text{
-      max-width:620px;
-      margin:0 auto 28px;
-      line-height:1.9;
-      color:#333;
-    }
-
-    @media (max-width:640px){
-      .wrap{
-        margin:24px auto;
-        padding:0 14px 40px;
-      }
-
-      h1{
-        font-size:28px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="wrap">
 
-    <h1>全国の国保計算ツール一覧</h1>
+<div class="wrap">
 
-    <p class="lead">
-      自治体ごとの国民健康保険料の目安を確認できる計算ツール一覧です。
-    </p>
+<h1>全国の国保計算ツール一覧</h1>
 
-    <div class="card">
-      <h2>自治体を探す</h2>
+<p class="lead">
+自治体ごとの国民健康保険料の目安を確認できる計算ツール一覧です。
+</p>
 
-      <input
-        id="searchBox"
-        class="searchBox"
-        type="text"
-        placeholder="自治体名を入力（例：茅ヶ崎市）"
-      >
+<div class="search-box">
+<input id="searchBox" placeholder="自治体名を入力（例：茅ヶ崎市）">
+</div>
 
-      <ul id="cityList" class="city-list"></ul>
-    </div>
+<ul id="cityList" class="city-list"></ul>
 
-    <h2 class="section-title">このページについて</h2>
-    <div class="section-text">
-      Civic Rule Lab は、自治体ごとの制度を確認しやすくするためのルールベース計算ツールです。
-    </div>
+<h2>このページについて</h2>
 
-  </div>
+<p>
+Civic Rule Lab は、自治体ごとの制度を確認しやすくするためのルールベース計算ツールです。
+</p>
 
-  <script src="./search.js"></script>
+</div>
+
+<script>
+
+const municipalities = [
+
+{
+cityName:"茅ヶ崎市",
+prefecture:"神奈川県",
+file:"chigasaki-kokuho.html",
+status:"active"
+},
+
+{
+cityName:"藤沢市",
+prefecture:"神奈川県",
+file:"",
+status:"planned"
+},
+
+{
+cityName:"平塚市",
+prefecture:"神奈川県",
+file:"",
+status:"planned"
+},
+
+{
+cityName:"大田区",
+prefecture:"東京都",
+file:"",
+status:"planned"
+}
+
+];
+
+const searchBox=document.getElementById("searchBox");
+const cityList=document.getElementById("cityList");
+
+function renderList(keyword=""){
+
+const q=keyword.trim().toLowerCase();
+
+cityList.innerHTML="";
+
+municipalities
+.filter(city=>{
+const text=(city.cityName+city.prefecture).toLowerCase();
+return text.includes(q);
+})
+.forEach(city=>{
+
+const li=document.createElement("li");
+
+if(city.status==="active"){
+
+li.innerHTML=`
+<div class="city-name">${city.cityName}</div>
+<div class="city-meta">${city.prefecture}｜国民健康保険料計算ツール</div>
+`;
+
+li.addEventListener("click",()=>{
+window.location.href=city.file;
+});
+
+}else{
+
+li.innerHTML=`
+<div class="city-name plain">${city.cityName}</div>
+<div class="city-meta">${city.prefecture}｜準備中</div>
+`;
+
+}
+
+cityList.appendChild(li);
+
+});
+
+}
+
+searchBox.addEventListener("input",()=>{
+renderList(searchBox.value);
+});
+
+renderList();
+
+</script>
+
 </body>
 </html>
