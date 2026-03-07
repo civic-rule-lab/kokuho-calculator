@@ -29,33 +29,45 @@ const searchBox = document.getElementById("searchBox");
 const cityList = document.getElementById("cityList");
 
 function renderList(keyword = "") {
+
   const q = keyword.trim().toLowerCase();
   cityList.innerHTML = "";
 
   municipalities
     .filter(city => {
-      const text = `${city.cityName} ${city.prefecture}`.toLowerCase();
+      const text = `${city.cityName}${city.prefecture}`.toLowerCase();
       return text.includes(q);
     })
     .forEach(city => {
+
       const li = document.createElement("li");
 
-     if (city.status === "active") {
-  li.innerHTML = `
-    <a href="${city.file}" class="city-link">
-      <div class="city-name">${city.cityName}</div>
-      <div class="city-meta">${city.prefecture}｜国民健康保険料計算ツール</div>
-    </a>
-  `;
-} else {
-  li.innerHTML = `
-    <div class="city-name plain">${city.cityName}</div>
-    <div class="city-meta">${city.prefecture}｜準備中</div>
-  `;
-}
+      if (city.status === "active") {
+
+        li.innerHTML = `
+          <div class="city-name">${city.cityName}</div>
+          <div class="city-meta">${city.prefecture}｜国民健康保険料計算ツール</div>
+        `;
+
+        li.style.cursor = "pointer";
+
+        li.addEventListener("click", () => {
+          window.location.href = city.file;
+        });
+
+      } else {
+
+        li.innerHTML = `
+          <div class="city-name plain">${city.cityName}</div>
+          <div class="city-meta">${city.prefecture}｜準備中</div>
+        `;
+
+      }
 
       cityList.appendChild(li);
+
     });
+
 }
 
 searchBox.addEventListener("input", () => {
