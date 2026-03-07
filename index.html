@@ -1,198 +1,55 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>全国の国保計算ツール一覧 | Civic Rule Lab</title>
-  <meta name="description" content="自治体ごとの国民健康保険料の目安を確認できる計算ツール一覧です。">
+<meta charset="UTF-8">
+<title>全国の国保計算ツール一覧</title>
 
-  <style>
-    body{
-      font-family: system-ui, -apple-system, sans-serif;
-      background:#f5f7fb;
-      margin:0;
-      color:#222;
-    }
+<style>
+body{
+font-family:sans-serif;
+background:#f5f7fb;
+margin:0;
+padding:40px;
+}
 
-    .wrap{
-      max-width:760px;
-      margin:40px auto;
-      padding:0 20px 60px;
-    }
+.container{
+max-width:700px;
+margin:auto;
+}
 
-    h1{
-      text-align:center;
-      line-height:1.4;
-      margin:10px 0 14px;
-      font-size:34px;
-    }
+h1{
+text-align:center;
+}
 
-    .lead{
-      max-width:620px;
-      margin:0 auto 28px;
-      text-align:center;
-      line-height:1.9;
-      color:#555;
-    }
+.card{
+background:#fff;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
 
-    .card{
-      background:#fff;
-      border-radius:12px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.08);
-      padding:24px 20px;
-      max-width:680px;
-      margin:0 auto 24px;
-    }
+a{
+color:#2563eb;
+font-weight:bold;
+text-decoration:none;
+}
+</style>
 
-    .card h2{
-      margin:0 0 14px;
-      font-size:22px;
-    }
-
-    .searchBox{
-      width:100%;
-      box-sizing:border-box;
-      padding:14px;
-      border:1px solid #d8dee8;
-      border-radius:8px;
-      font-size:16px;
-    }
-
-    .city-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 0;
-    }
-
-    .city-list li{
-      border-top:1px solid #eceff5;
-      padding:16px 0;
-    }
-
-    .city-list li:first-child{
-      border-top:none;
-      padding-top:0;
-    }
-
-    .city-link{
-      display:block;
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .city-link:hover .city-name{
-      text-decoration:underline;
-    }
-
-    .city-name{
-      color:#2563eb;
-      font-weight:700;
-      font-size:18px;
-    }
-
-    .city-name.plain{
-      color:#222;
-    }
-
-    .city-meta{
-      margin-top:6px;
-      color:#666;
-      font-size:14px;
-    }
-
-    .section-title{
-      max-width:680px;
-      margin:40px auto 12px;
-      text-align:center;
-      font-size:22px;
-    }
-
-    .section-text{
-      max-width:620px;
-      margin:0 auto 28px;
-      line-height:1.9;
-      color:#333;
-    }
-
-    @media (max-width:640px){
-      .wrap{
-        margin:24px auto;
-        padding:0 14px 40px;
-      }
-
-      h1{
-        font-size:28px;
-      }
-    }
-  </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <h1>全国の国保計算ツール一覧</h1>
+<div class="container">
 
-    <p class="lead">
-      自治体ごとの国民健康保険料の目安を確認できる計算ツール一覧です。
-      市区町村ごとのページから、年間保険料や月額の目安を簡単に計算できます。
-    </p>
+<h1>全国の国保計算ツール一覧</h1>
 
-    <div class="card">
-      <h2>自治体を探す</h2>
+<div class="card">
+<a href="chigasaki-kokuho.html">
+茅ヶ崎市｜国民健康保険料計算ツール
+</a>
+</div>
 
-      <input
-        id="searchBox"
-        class="searchBox"
-        type="text"
-        placeholder="自治体名を入力（例：茅ヶ崎市）"
-      >
+</div>
 
-      <ul id="cityList" class="city-list">
-        <li data-keywords="茅ヶ崎市 ちがさき chigasaki 神奈川県 かながわ">
-          <a href="./chigasaki-kokuho.html" class="city-link">
-            <div class="city-name">茅ヶ崎市</div>
-            <div class="city-meta">神奈川県｜国民健康保険料計算ツール</div>
-          </a>
-        </li>
-
-        <li data-keywords="藤沢市 ふじさわ fujisawa 神奈川県 かながわ">
-          <div class="city-name plain">藤沢市</div>
-          <div class="city-meta">神奈川県｜準備中</div>
-        </li>
-
-        <li data-keywords="平塚市 ひらつか hiratsuka 神奈川県 かながわ">
-          <div class="city-name plain">平塚市</div>
-          <div class="city-meta">神奈川県｜準備中</div>
-        </li>
-
-        <li data-keywords="大田区 おおた ota 東京都 とうきょう">
-          <div class="city-name plain">大田区</div>
-          <div class="city-meta">東京都｜準備中</div>
-        </li>
-      </ul>
-    </div>
-
-    <h2 class="section-title">このページについて</h2>
-    <div class="section-text">
-      Civic Rule Lab は、自治体ごとの制度を確認しやすくするためのルールベース計算ツールです。
-    </div>
-
-  </div>
-
-  <script>
-    const searchBox = document.getElementById("searchBox");
-    const cityList = document.getElementById("cityList");
-    const items = cityList.querySelectorAll("li");
-
-    function filterCities() {
-      const keyword = searchBox.value.trim().toLowerCase();
-
-      items.forEach((item) => {
-        const text = (item.dataset.keywords || item.innerText).toLowerCase();
-        item.style.display = text.includes(keyword) ? "" : "none";
-      });
-    }
-
-    searchBox.addEventListener("input", filterCities);
-  </script>
 </body>
 </html>
