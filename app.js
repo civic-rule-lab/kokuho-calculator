@@ -124,7 +124,6 @@ function resetResult() {
 });
 
 btn.addEventListener("click", () => {
-  alert("ボタンOK");
   calc();
 });
 
