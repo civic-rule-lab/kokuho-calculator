@@ -1,141 +1,242 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>茅ヶ崎市 国民健康保険料計算ツール</title>
 
-  <title>茅ヶ崎市 国民健康保険料 計算機（国保シミュレーター）</title>
-  <meta name="description" content="茅ヶ崎市の国民健康保険（国保）を概算でシミュレーション。世帯の所得目安・加入人数・40〜64歳人数を入れると、年間・月額の目安と内訳を表示します。" />
-  <link rel="canonical" href="https://civic-rule-lab.github.io/chigasaki-kokuho.html">
-  <meta name="robots" content="index, follow" />
+<style>
+body{
+  font-family: system-ui, -apple-system, sans-serif;
+  background:#f5f7fb;
+  margin:0;
+  color:#222;
+}
 
-  <!-- OGP（SNSシェア） -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="【茅ヶ崎市】国保シミュレーター｜年間・月額の目安を簡単計算" />
-  <meta property="og:description" content="茅ヶ崎市の国保（国民健康保険）を概算で計算。入力→年間・月額目安と内訳を表示。" />
-  <meta property="og:url" content="https://civic-rule-lab.github.io/chigasaki-kokuho.html">
-    
+.wrap{
+  max-width:760px;
+  margin:40px auto;
+  padding:0 20px 60px;
+}
 
-  <!-- 共通CSS -->
-  <link rel="stylesheet" href="./style.css" />
+.back-link{
+  display:inline-block;
+  margin-bottom:18px;
+  color:#2563eb;
+  text-decoration:none;
+  font-size:14px;
+}
 
-  <!-- 構造化データ：WebApplication -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "茅ヶ崎市 国保シミュレーター",
-    "url": "https://civic-rule-lab.github.io/kokuho-calculator/chigasaki/",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "description": "茅ヶ崎市の国民健康保険（国保）の保険料目安を概算で計算するシミュレーター。",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+h1{
+  text-align:center;
+  line-height:1.4;
+  margin:10px 0 22px;
+  font-size:32px;
+}
+
+.card{
+  background:#fff;
+  padding:28px 22px;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  max-width:680px;
+  margin:0 auto 28px;
+}
+
+label{
+  display:block;
+  font-weight:600;
+  margin:0 0 8px;
+}
+
+input{
+  width:100%;
+  box-sizing:border-box;
+  padding:12px;
+  margin-bottom:18px;
+  border:1px solid #d8dee8;
+  border-radius:8px;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#1d4ed8;
+}
+
+.note{
+  margin-top:12px;
+  font-size:13px;
+  color:#666;
+  text-align:center;
+}
+
+.result-grid{
+  max-width:680px;
+  margin:0 auto 28px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.result-card{
+  background:#fff;
+  border-radius:12px;
+  padding:22px 18px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.result-title{
+  font-size:15px;
+  color:#555;
+  margin-bottom:10px;
+}
+
+.result-value{
+  font-size:30px;
+  font-weight:800;
+  line-height:1.3;
+}
+
+.breakdown{
+  max-width:680px;
+  margin:0 auto 28px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  padding:18px 18px 8px;
+}
+
+.breakdown summary{
+  cursor:pointer;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.breakdown pre{
+  white-space:pre-wrap;
+  word-break:break-word;
+  font-family:inherit;
+  line-height:1.8;
+  margin:0;
+  font-size:15px;
+}
+
+.desc{
+  max-width:680px;
+  margin:0 auto;
+  line-height:1.9;
+}
+
+.desc h2,
+.desc h3{
+  white-space:nowrap;
+}
+
+.desc h2{
+  font-size:22px;
+  margin:0 0 16px;
+}
+
+.desc h3{
+  font-size:18px;
+  margin:24px 0 10px;
+}
+
+.desc p{
+  margin:0 0 14px;
+}
+
+@media (max-width:640px){
+  .wrap{
+    margin:24px auto;
+    padding:0 14px 40px;
   }
-  </script>
 
-  <!-- 構造化データ：FAQ（検索結果で強い） -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "茅ヶ崎市の国保はここで正確に計算できますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "このページは自治体の計算方法を参考にした概算シミュレーションです。正確な保険料は自治体から届く通知をご確認ください。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "40〜64歳の人数はなぜ入力が必要ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "40〜64歳は介護保険分（第2号被保険者）が保険料に影響するため、人数の入力が必要になります。"
-        }
-      }
-    ]
+  h1{
+    font-size:28px;
   }
-  </script>
+
+  .result-grid{
+    grid-template-columns:1fr;
+  }
+
+  .result-value{
+    font-size:28px;
+  }
+
+  .desc h2,
+  .desc h3{
+    white-space:normal;
+  }
+}
+</style>
 </head>
+<body>
 
-<body
-data-city-code="14207"
-data-city-id="chigasaki"
-data-system="kokuho"
-data-fiscal-year="2025"
-data-rule-version="v1"
->
-  <main class="wrap">
-    
-    <p style="margin:0 0 8px;">
-      <a href="./" aria-label="トップへ戻る">← トップ（自治体一覧）へ</a>
-    </p>
+<div class="wrap">
 
-    <h1>茅ヶ崎市　国保電卓</h1>
+  <a href="index.html" class="back-link">← 全国の国保計算ツール一覧</a>
 
-    <section class="card" aria-label="入力フォーム">
-      <label for="income">総所得金額等（世帯の合計）</label>
+  <h1>茅ヶ崎市<br>国民健康保険料計算ツール</h1>
 
-<div class="inputWithSuffix">
-  <input
-    id="income"
-    type="number"
-    inputmode="numeric"
-    placeholder="例：3000000"
-  />
-  <span class="suffix">円</span>
+  <div class="card">
+    <label for="income">世帯の総所得金額等（円）</label>
+    <input id="income" type="number" placeholder="例：3000000">
+
+    <label for="insuredCount">国保人数（被保険者数）</label>
+    <input id="insuredCount" type="number" placeholder="例：3">
+
+    <label for="careCount">介護分の対象人数（40〜64歳）</label>
+    <input id="careCount" type="number" placeholder="例：1">
+
+    <button id="calcBtn" type="button">保険料を計算する</button>
+
+    <div class="note">※入力は概算です。実際の保険料は自治体通知をご確認ください。</div>
+  </div>
+
+  <div class="result-grid" id="result">
+    <div class="result-card">
+      <div class="result-title">年間保険料の目安</div>
+      <div class="result-value" id="annual">—</div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-title">月額の目安（年間÷12）</div>
+      <div class="result-value" id="monthly">—</div>
+    </div>
+  </div>
+
+  <details class="breakdown">
+    <summary>保険料の内訳を見る</summary>
+    <pre id="breakdown">—</pre>
+  </details>
+
+  <div class="desc">
+    <h2>茅ヶ崎市の国民健康保険料を簡単計算</h2>
+    <p>このページでは、世帯の所得や人数を入力することで、茅ヶ崎市の国民健康保険料の目安を簡単に計算できます。</p>
+
+    <h3>簡単国保計算ツールの使い方</h3>
+    <p>世帯の総所得金額等、国保人数、介護分の対象人数を入力して「保険料を計算する」を押してください。年間保険料の目安と、月額の目安、計算内訳を表示します。</p>
+
+    <h3>注釈</h3>
+    <p>この結果は簡易計算の目安です。実際の保険料は自治体から届く通知をご確認ください。</p>
+  </div>
+
 </div>
 
-
-      <label for="insuredCount">国保の人数（被保険者数）</label>
-      <input id="insuredCount" type="number" inputmode="numeric" placeholder="例：3" />
-
-      <label for="careCount">介護分の対象人数（40〜64歳）</label>
-      <input id="careCount" type="number" inputmode="numeric" placeholder="例：1" />
-
-      <button id="calcBtn" type="button">計算</button>
-
-      <hr class="sep" />
-
-      <section id="result" class="result" aria-label="結果">
-        
-        <div class="resultTitle">年間国保目安</div>
-        <div id="annual" class="resultValue">—</div>
-
-        <div class="resultTitle sub">月額目安（年間÷12）</div>
-        <div id="monthly" class="resultValue">—</div>
-
-        <details class="details">
-          <summary>内訳を見る</summary>
-          <pre id="breakdown" class="breakdown">—</pre>
-        </details>
-      </section>
-    </section>
-
-    <!-- SEO本文（検索の“本文評価”に効く） -->
-    <section class="seo-text">
-      <h2>茅ヶ崎市の国民健康保険料を簡単計算</h2>
-      <p>
-        このページは、茅ヶ崎市の国民健康保険（国保）の保険料目安を概算で計算するシミュレーターです。
-        世帯の所得目安・加入人数・40〜64歳人数を入力すると、年間と月額の目安、内訳を表示します。
-      </p>
-
-      <h3>国保計算機の使い方</h3>
-      <ol>
-        <li>総所得金額等（世帯の合計の目安）を入力</li>
-        <li>国保の人数（被保険者数）を入力</li>
-        <li>40〜64歳の人数を入力</li>
-        <li>年間保険料と月額目安が表示されます</li>
-      </ol>
-
-      <h3>注意</h3>
-      <p>実際の保険料は自治体から届く通知をご確認ください。</p>
-    </section>
-  </main>
-
-  <!-- 共通JS（パス注意：1つ上に戻る） -->
-  <script src="app.js?v=1" defer></script>
+<script src="app.js?v=1" defer></script>
 </body>
 </html>
