@@ -13,3 +13,18 @@
     "basicDeduction": 430000
   }
 }
+　{
+  "cityId": "chigasaki",
+  "prefectureId": "kanagawa",
+
+  "premiumYear": 2026,
+  "incomeYear": 2025,
+
+  "ruleVersion": "2026.1",
+
+  "rates": {
+    "incomeRate": 0.073,
+    "perCapita": 42000,
+    "basicDeduction": 430000
+  }
+}
